@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand */
+  --color-primary: #10b981;
+  --color-secondary: #3b82f6;
+  --color-tertiary: #fc7c78;
+
+  /* Semantic */
+  --color-success: #016d4a;
+  --color-warning: #a43a3a;
+  --color-error: #ef4444;
+
+  /* Neutral */
+  --color-neutral: #717973;
+
+  /* Typography */
+  --font-inter: "Inter", sans-serif;
+}

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-@source "../html";
+@source "../HTML/*.html";
+@source "../Javascript/*.js";
 
 @theme {
   /* Brand */

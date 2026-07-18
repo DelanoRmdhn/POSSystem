@@ -8,13 +8,101 @@
 
     <title>Sistem POS</title>
   </head>
-  <body class="bg-red-500">
+  <body class="font-inter">
     <section class="flex min-h-screen">
       <!-- Sidebar -->
-      <aside class="w-1/4 bg-primary"></aside>
+      <aside
+        class="w-64 flex flex-col bg-navigation-aside py-6 border-r border-[#bbcabf]"
+      >
+        <!-- Logo -->
+        <div class="flex flex-col px-6 pb-8 gap-4 justify-center">
+          <h1 class="text-2xl font-bold text-primary">QuickPOS</h1>
+          <div class="flex flex-row gap-3 align-middle">
+            <div
+              class="bg-secondary flex flex-col justify-center rounded-full p-1.25"
+            >
+              <ion-icon
+                name="person-circle-outline"
+                class="text-white"
+                size="large"
+              ></ion-icon>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-[14px] font-medium">Shift Active</p>
+              <p class="text-xs text-[#3C4A42]">Terminal 01</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex-1 px-2">
+          <ul class="space-y-1">
+            <li>
+              <a
+                href="../HTML/index.html"
+                class="flex items-center gap-3 rounded-lg bg-navigation px-4 py-3 text-sm font-medium text-white"
+              >
+                <ion-icon name="home-outline" class="home-icon"></ion-icon>
+                <span>Dashboard</span>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="../HTML/inventory.html"
+                class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium hover:bg-neutral transition-colors"
+              >
+                <ion-icon name="albums-outline" class="nav-icon"></ion-icon>
+                <span>Inventory</span>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="../HTML/sales.html"
+                class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium hover:bg-neutral transition-colors"
+              >
+                <ion-icon name="cart-outline" class="nav-icon"></ion-icon>
+                <span>Sales</span>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="../HTML/customers.html"
+                class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium hover:bg-neutral transition-colors"
+              >
+                <ion-icon name="people-outline" class="nav-icon"></ion-icon>
+                <span>Customers</span>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="../HTML/reports.html"
+                class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium hover:bg-neutral transition-colors"
+              >
+                <ion-icon name="bar-chart-outline" class="nav-icon"></ion-icon>
+                <span>Reports</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Exit -->
+        <div class="px-2 pt-4">
+          <a
+            href="#"
+            class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-warning hover:bg-neutral transition-colors"
+          >
+            <ion-icon name="exit-outline" class="text-[18px]"></ion-icon>
+            <span class="text-[14px]">Logout</span>
+          </a>
+        </div>
+      </aside>
 
       <!-- Main -->
-      <main class="flex flex-col w-3/4 bg-tertiary">
+      <main class="flex-1 flex flex-col bg-tertiary">
         <!-- Navbar -->
         <header class="h-16 w-full bg-white"></header>
 
@@ -28,5 +116,14 @@
         </div>
       </main>
     </section>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

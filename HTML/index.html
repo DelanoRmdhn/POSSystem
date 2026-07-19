@@ -104,7 +104,41 @@
       <!-- Main -->
       <main class="flex-1 flex flex-col bg-tertiary">
         <!-- Navbar -->
-        <header class="h-16 w-full bg-white"></header>
+        <header
+          class="flex justify-between items-center flex-row h-16 w-full bg-white px-4 py-2"
+        >
+          <div
+            class="flex items-center w-80 gap-2 rounded-3xl border border-transparent bg-neutral-2 px-4 py-2 transition-all focus-within:border-primary focus-within:border-2"
+          >
+            <ion-icon name="search-outline" class="text-xl"></ion-icon>
+
+            <input
+              type="text"
+              placeholder="Cari produk (F1)..."
+              class="text-sm w-full bg-transparent outline-none"
+            />
+          </div>
+          <div class="flex flex-row gap-4 justify-between items-center">
+            <a href="http://"
+              ><ion-icon
+                name="time-outline"
+                class="text-xl hover:bg-neutral transition-colors flex flex-col justify-center rounded-full p-1.25"
+              ></ion-icon
+            ></a>
+            <a href="http://">
+              <ion-icon
+                name="settings-outline"
+                class="text-xl hover:bg-neutral transition-colors flex flex-col justify-center rounded-full p-1.25"
+              ></ion-icon
+            ></a>
+            <a href="http://"
+              ><ion-icon
+                name="accessibility-outline"
+                class="text-xl hover:bg-neutral transition-colors flex flex-col justify-center rounded-full p-1.25"
+              ></ion-icon
+            ></a>
+          </div>
+        </header>
 
         <!-- Content -->
         <div class="flex flex-1">

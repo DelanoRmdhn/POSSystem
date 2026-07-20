@@ -19,7 +19,7 @@
           <h1 class="text-2xl font-bold text-primary">QuickPOS</h1>
           <div class="flex flex-row gap-3 align-middle">
             <div
-              class="bg-secondary flex flex-col justify-center rounded-full p-1.25"
+              class="bg-primary flex flex-col justify-center rounded-full p-1.25"
             >
               <ion-icon
                 name="person-circle-outline"
@@ -40,7 +40,7 @@
             <li>
               <a
                 href="../HTML/index.html"
-                class="flex items-center gap-3 rounded-lg bg-navigation px-4 py-3 text-sm font-medium text-white"
+                class="flex items-center gap-3 rounded-lg bg-primary px-4 py-3 text-sm font-medium text-white"
               >
                 <ion-icon name="home-outline" class="home-icon"></ion-icon>
                 <span>Dashboard</span>
@@ -141,7 +141,7 @@
         </header>
 
         <!-- Content -->
-        <div class="grid grid-cols-12 gap-6 p-6 w-full h-full">
+        <div class="bg-main grid grid-cols-12 gap-6 p-6 w-full h-full">
           <!-- Product -->
           <section class="col-span-8">
             <div
@@ -193,7 +193,7 @@
 
                   <p class="text-base font-bold text-primary mb-2">Rp 3.500</p>
                   <button
-                    class="w-full rounded-lg bg-emerald-500 px-4 py-2 font-medium text-white transition hover:bg-emerald-600"
+                    class="w-full rounded-lg bg-emerald-500 px-4 py-2 font-medium text-white transition hover:bg-success"
                   >
                     + Tambah
                   </button>
@@ -217,7 +217,7 @@
 
                   <p class="text-base font-bold text-primary mb-2">Rp 5.000</p>
                   <button
-                    class="w-full rounded-lg bg-emerald-500 px-4 py-2 font-medium text-white transition hover:bg-emerald-600"
+                    class="w-full rounded-lg bg-emerald-500 px-4 py-2 font-medium text-white transition hover:bg-success"
                   >
                     + Tambah
                   </button>
@@ -239,7 +239,7 @@
 
                   <p class="text-base font-bold text-primary mb-2">Rp 4.000</p>
                   <button
-                    class="w-full rounded-lg bg-emerald-500 px-4 py-2 font-medium text-white transition hover:bg-emerald-600"
+                    class="w-full rounded-lg bg-emerald-500 px-4 py-2 font-medium text-white transition hover:bg-success"
                   >
                     + Tambah
                   </button>
@@ -263,7 +263,7 @@
 
                   <p class="text-base font-bold text-primary mb-2">Rp 12.500</p>
                   <button
-                    class="w-full rounded-lg bg-emerald-500 px-4 py-2 font-medium text-white transition hover:bg-emerald-600"
+                    class="w-full rounded-lg bg-emerald-500 px-4 py-2 font-medium text-white transition hover:bg-success"
                   >
                     + Tambah
                   </button>
@@ -287,7 +287,7 @@
 
                   <p class="text-base font-bold text-primary mb-2">Rp 6.500</p>
                   <button
-                    class="w-full rounded-lg bg-emerald-500 px-4 py-2 font-medium text-white transition hover:bg-emerald-600"
+                    class="w-full rounded-lg bg-emerald-500 px-4 py-2 font-medium text-white transition hover:bg-success"
                   >
                     + Tambah
                   </button>
@@ -311,7 +311,7 @@
 
                   <p class="text-base font-bold text-primary mb-2">Rp 2.000</p>
                   <button
-                    class="w-full rounded-lg bg-emerald-500 px-4 py-2 font-medium text-white transition hover:bg-emerald-600"
+                    class="w-full rounded-lg bg-emerald-500 px-4 py-2 font-medium text-white transition hover:bg-success"
                   >
                     + Tambah
                   </button>
@@ -321,7 +321,91 @@
           </section>
 
           <!-- Sidebar -->
-          <aside class="col-span-4 bg-warning"></aside>
+          <aside
+            class="col-span-4 flex flex-col border rounded-xl border-[#BBCABF]"
+          >
+            <div
+              class="cart-header flex flex-row justify-between items-center p-4 border-b border-[#BBCABF]"
+            >
+              <div class="heading flex flex-row gap-2">
+                <h2>Keranjang</h2>
+                <div class="flex items-center bg-error rounded-full">
+                  <p class="text-[10px] font-bold text-white px-2 py-0.5">0</p>
+                </div>
+              </div>
+              <button type="button" class="text-sm text-warning font-medium">
+                Hapus Semua
+              </button>
+            </div>
+            <!-- CART ITEMS -->
+            <div
+              class="cart-items flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-success"
+            >
+              <div class="cart-items-active"></div>
+              <div
+                class="cart-items-empty h-full flex flex-col items-center justify-center"
+              >
+                <ion-icon
+                  name="cart-outline"
+                  class="text-7xl text-neutral"
+                ></ion-icon>
+                <span class="text-gray-500 italic text-base"
+                  >Keranjang masih kosong.</span
+                >
+              </div>
+            </div>
+            <div
+              class="billing-panel flex flex-col gap-4 p-4 border-t border-[#BBCABF]"
+            >
+              <div class="items-information flex flex-col gap-2">
+                <div class="flex flex-row justify-between items-center">
+                  <p class="text-sm">Subtotal</p>
+                  <p class="text-sm font-bold">Rp 0</p>
+                </div>
+                <div class="flex flex-row justify-between items-center">
+                  <p class="text-sm">Diskon</p>
+                  <div class="relative w-24">
+                    <input
+                      class="w-full pl-2 pr-6 py-1 border border-success rounded text-right text-sm focus:ring-1 focus:ring-primary"
+                      type="number"
+                      name=""
+                      id=""
+                    />
+                    <span
+                      class="absolute right-2 top-1/2 -translate-y-1/2 text-[10px]"
+                      >%</span
+                    >
+                  </div>
+                </div>
+                <div class="flex flex-row justify-between items-center">
+                  <p class="text-sm">Pajak</p>
+                  <p class="text-sm font-bold">Rp 0</p>
+                </div>
+                <div
+                  class="flex flex-row justify-between items-center border-t border-dashed border-[#BBCABF]"
+                >
+                  <h3 class="text-base font-bold">TOTAL</h3>
+                  <p class="text-lg font-extrabold text-success">Rp 0</p>
+                </div>
+              </div>
+              <div
+                class="cta-btn flex flex-row justify-between items-center gap-3"
+              >
+                <button
+                  type="button"
+                  class="w-full py-3 border border-error rounded-lg font-bold text-sm text-error"
+                >
+                  RESET
+                </button>
+                <button
+                  type="button"
+                  class="w-full py-3 border bg-success rounded-lg font-bold text-sm text-white"
+                >
+                  CHECKOUT
+                </button>
+              </div>
+            </div>
+          </aside>
         </div>
       </main>
     </section>

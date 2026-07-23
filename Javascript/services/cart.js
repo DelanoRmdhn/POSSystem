@@ -1,7 +1,6 @@
 "use strict";
 import {state} from "../state/store.js";
 import {products} from "../data/products.js";
-import {resetCart} from "../state/store.js";
 
 
 const cartCount = document.getElementById("cart-count");

@@ -7,7 +7,6 @@ import { renderProducts } from "../Javascript/ui/productsList.js";
 import { addToCart,updateCartCounter,addItem,calculateSubtotal,calculateTax,calculateDiscount,calculateTotal} from "./services/cart.js";
 import { renderCart} from "./ui/renderCart.js";
 
-import { resetCart } from "./state/store.js";
 
 
 //starting State

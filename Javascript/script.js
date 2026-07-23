@@ -1,12 +1,13 @@
 "use strict";
 
-import { startingState } from "./state/store.js";
+import { startingState,resetCart} from "./state/store.js";
 
 import { products } from "../Javascript/data/products.js";
 import { renderProducts } from "../Javascript/ui/productsList.js";
 import {cart} from "./state/store.js";
-import { addToCart } from "./services/cart.js";
-import { renderCart } from "./ui/renderCart.js";
+import { addToCart,updateCartCounter,addItem} from "./services/cart.js";
+import { renderCart} from "./ui/renderCart.js";
+
 
 //starting State
 startingState();
@@ -15,9 +16,7 @@ startingState();
 renderProducts(products);
 
 //add Button
-const buttonsAdd = document.querySelectorAll("[data-btn-add");
-
-
+const buttonsAdd = document.querySelectorAll("[data-btn-add]  ");
 for (let i = 0; i < buttonsAdd.length; i++) {
   buttonsAdd[i].addEventListener("click", function () {
     //
@@ -26,10 +25,19 @@ for (let i = 0; i < buttonsAdd.length; i++) {
 
     // Masukin Elemen Li Baru ke cart apabila belum ada di cart
     renderCart();
-    if (cart.length !== 0) {
-      document.querySelector(".cart-items-empty").classList.add("hidden");
-      document.querySelector(".cart-items-active").classList.remove("hidden");
-    }
+
+    //nilai cartCounter sesuai dengan jumlah item di cart
+    updateCartCounter();
+
+    //
   });
 }
 
+//add item button
+
+//Reset cart
+const resetBtn = document.getElementById("reset-btn");
+const resetCartBtn = document.getElementById("reset-cart");
+
+resetBtn.addEventListener("click",resetCart);
+resetCartBtn.addEventListener("click",resetCart);

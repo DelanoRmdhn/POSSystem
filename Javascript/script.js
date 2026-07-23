@@ -1,12 +1,13 @@
 "use strict";
 
-import { startingState,resetCart} from "./state/store.js";
+import {startingState,state} from "./state/store.js";
 
 import { products } from "../Javascript/data/products.js";
 import { renderProducts } from "../Javascript/ui/productsList.js";
-import {cart} from "./state/store.js";
-import { addToCart,updateCartCounter,addItem} from "./services/cart.js";
+import { addToCart,updateCartCounter,addItem,calculateSubtotal} from "./services/cart.js";
 import { renderCart} from "./ui/renderCart.js";
+
+import { resetCart } from "./state/store.js";
 
 
 //starting State
@@ -30,6 +31,7 @@ for (let i = 0; i < buttonsAdd.length; i++) {
     updateCartCounter();
 
     //
+    calculateSubtotal();
   });
 }
 

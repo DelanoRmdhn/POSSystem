@@ -1,22 +1,22 @@
 'use strict';
-import {cart,cartCounter} from "../state/store.js";
-import { addItem,removeItem,updateCartCounter} from "../services/cart.js";
+import {state} from "../state/store.js";
+import { addItem,removeItem,updateCartCounter,calculateSubtotal} from "../services/cart.js";
 
 const parentUl = document.querySelector(".ul-parent");
 
 export const renderCart = function () {
   parentUl.innerHTML = "";
 
-      if (cart.length === 0) {
+      if (state.cart.length === 0) {
       document.querySelector(".cart-items-empty").classList.remove("hidden");
       document.querySelector(".cart-items-active").classList.add("hidden");
       return;
     }
     document.querySelector(".cart-items-empty").classList.add("hidden");
     document.querySelector(".cart-items-active").classList.remove("hidden");
-    document.getElementById("cart-count").textContent = cart.length;
-    
-  for (let i = 0; i < cart.length; i++) {
+    document.getElementById("cart-count").textContent = state.cart.length;
+
+  for (let i = 0; i < state.cart.length; i++) {
     parentUl.insertAdjacentHTML(
       "beforeend",
       `
@@ -24,8 +24,8 @@ export const renderCart = function () {
           class="list-items py-4 flex flex-row items-center justify-between"
           >
           <div class="flex-1">
-          <h4 class="text-sm font-normal">${cart[i].name}</h4>
-          <p class="text-xs text-gray-500">Rp ${cart[i].price}</p>
+          <h4 class="text-sm font-normal">${state.cart[i].name}</h4>
+          <p class="text-xs text-gray-500">Rp ${state.cart[i].price}</p>
           </div>
         <div
         class="flex flex-row justify-between items-center bg-neutral gap-2 p-1 rounded-lg"
@@ -35,7 +35,7 @@ export const renderCart = function () {
         >
         -
         </button>
-        <p class="text-sm font-bold w-6 text-center" id='quantity'>${cart[i].quantity}</p>
+        <p class="text-sm font-bold w-6 text-center" id='quantity'>${state. cart[i].quantity}</p>
         <button
         class="w-7 h-7 flex items-center justify-center rounded bg-white hover:text-primary duration-200 btn-increment"
         >
@@ -52,6 +52,8 @@ export const renderCart = function () {
             addItem(i);
             renderCart();
             updateCartCounter();
+            calculateSubtotal();
+
         });
 
     //Tambahin Button untuk kurangin item di cart
@@ -60,6 +62,7 @@ export const renderCart = function () {
             removeItem(i);
             renderCart();
             updateCartCounter();
+            calculateSubtotal();
         });
   }
 };

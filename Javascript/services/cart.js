@@ -68,3 +68,43 @@ export const calculateSubtotal = function () {
     state.subtotal = currentSubtotal;
     subtotalElement.textContent = `Rp ${state.subtotal}`;
 }
+
+
+
+//logic perhitungan pajak
+const taxEl = document.getElementById("tax");
+export const calculateTax = function () {
+    let currentTax = 0;
+    for(let i = 0; i < state.cart.length; i++) { 
+        currentTax += (state.cart[i].price * state.cart[i].quantity) * 0.10; // 10% tax
+    }
+    state.tax = currentTax;
+    taxEl.textContent = `Rp ${state.tax}`;
+}
+
+//Validasi input Diskon
+const discountInput = document.getElementById("discount-input");
+export const calculateDiscount = function () {
+    discountInput.addEventListener("change", function () {
+        state.discount = parseInt(discountInput.value);
+        if(isNaN(state.discount) || state.discount < 0) {
+            state.discount = 0;
+            discountInput.value = 0;
+        } else {
+            state.discount = parseInt(discountInput.value);
+        }
+    });
+};
+
+//logic Perhitungan Total
+const grandTotal = document.getElementById("total");
+export const calculateTotal = function () {
+ state.discountAmount = state.subtotal * (state.discount / 100);
+    // console.log("Discount Amount: " + state.discountAmount);
+    state.total =
+        state.subtotal -
+        state.discountAmount +
+        state.tax;
+
+    grandTotal.textContent = `Rp ${state.total}`;
+}

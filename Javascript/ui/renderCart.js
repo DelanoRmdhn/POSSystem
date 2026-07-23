@@ -1,6 +1,6 @@
 'use strict';
 import {state} from "../state/store.js";
-import { addItem,removeItem,updateCartCounter,calculateSubtotal} from "../services/cart.js";
+import { addItem,removeItem,updateCartCounter,calculateSubtotal,calculateTax,calculateDiscount,calculateTotal} from "../services/cart.js";
 
 const parentUl = document.querySelector(".ul-parent");
 
@@ -53,16 +53,22 @@ export const renderCart = function () {
             renderCart();
             updateCartCounter();
             calculateSubtotal();
-
-        });
-
-    //Tambahin Button untuk kurangin item di cart
-    const decrementButton = parentUl.lastElementChild.querySelector(".btn-decrement");
-        decrementButton.addEventListener("click", function () {
+            calculateTax();
+            calculateDiscount();
+            calculateTotal();
+            
+          });
+          
+          //Tambahin Button untuk kurangin item di cart
+          const decrementButton = parentUl.lastElementChild.querySelector(".btn-decrement");
+          decrementButton.addEventListener("click", function () {
             removeItem(i);
             renderCart();
             updateCartCounter();
             calculateSubtotal();
+            calculateTax(); 
+            calculateDiscount();
+            calculateTotal();
         });
   }
 };

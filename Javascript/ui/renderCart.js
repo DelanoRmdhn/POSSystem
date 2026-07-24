@@ -1,10 +1,11 @@
 "use strict";
-import { state } from "../state/store.js";
+import { checkoutModalEl, state, closeReceipt } from "../state/store.js";
 import {
   addItem,
   removeItem,
   updateCartCounter,
   runServices,
+  calculateSubtotal,
 } from "../services/cart.js";
 
 const parentUl = document.querySelector(".ul-parent");
@@ -70,3 +71,35 @@ export const renderCart = function () {
     });
   }
 };
+
+const parentUl2 = document.getElementById("checkout-items");
+export const renderReceipt = function () {
+  parentUl2.innerHTML = "";
+  if (state.cart.length === 0) {
+    alert("Keranjang Kosong!");
+    return;
+  }
+
+  for (let i = 0; i < state.cart.length; i++) {
+    parentUl2.insertAdjacentHTML(
+      "beforeend",
+      `
+        <tr class="border-b border-dashed border-gray-300">
+          <td class="py-2">${state.cart[i].name}</td>
+          <td class="py-2 text-center">${state.cart[i].quantity}x</td>
+          <td class="py-2 text-right">Rp. ${state.cart[i].price}</td>
+        </tr>
+      `,
+    );
+  }
+  document.getElementById("subtotal-receipt").textContent =
+    `Rp ${state.subtotal}`;
+  document.getElementById("tax-receipt").textContent = `Rp ${state.tax}`;
+  document.getElementById("discount-receipt").textContent =
+    `Rp ${state.discountAmount}`;
+  document.getElementById("total-receipt").textContent = `Rp ${state.total}`;
+  checkoutModalEl.classList.remove("hidden");
+};
+
+const closeModalBtn = document.getElementById("cancel-modal-btn");
+closeModalBtn.addEventListener("click", closeReceipt);

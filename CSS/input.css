@@ -2,9 +2,6 @@
 
 @import "tailwindcss";
 
-@source "../HTML/*.html";
-@source "../Javascript/*.js";
-
 @theme {
   /* Brand */
   --color-primary: #006c49;

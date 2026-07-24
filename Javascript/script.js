@@ -1,13 +1,20 @@
 "use strict";
 
-import {startingState,state} from "./state/store.js";
+import { startingState, state } from "./state/store.js";
 
 import { products } from "../Javascript/data/products.js";
+import {
+  addToCart,
+  updateCartCounter,
+  addItem,
+  calculateSubtotal,
+  calculateTax,
+  calculateDiscount,
+  calculateTotal,
+} from "./services/cart.js";
+
 import { renderProducts } from "../Javascript/ui/productsList.js";
-import { addToCart,updateCartCounter,addItem,calculateSubtotal,calculateTax,calculateDiscount,calculateTotal} from "./services/cart.js";
-import { renderCart} from "./ui/renderCart.js";
-
-
+import { renderCart, renderReceipt } from "./ui/renderCart.js";
 
 //starting State
 startingState();
@@ -42,11 +49,13 @@ for (let i = 0; i < buttonsAdd.length; i++) {
   });
 }
 
-//add item button
+//CHECKOUT
+const checkoutBtn = document.getElementById("checkout-btn");
+checkoutBtn.addEventListener("click", renderReceipt);
 
 //Reset cart
 const resetBtn = document.getElementById("reset-btn");
 const resetCartBtn = document.getElementById("reset-cart");
 
-resetBtn.addEventListener("click",startingState);
-resetCartBtn.addEventListener("click",startingState);
+resetBtn.addEventListener("click", startingState);
+resetCartBtn.addEventListener("click", startingState);

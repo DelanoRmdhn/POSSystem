@@ -49,14 +49,7 @@
                   </th>
                 </tr>
               </thead>
-              <tbody id="checkout-items" class="">
-                <tr class="border-b border-dashed border-gray-300">
-                  <td class="py-2">Indomie Goreng</td>
-                  <td class="py-2 text-right">2</td>
-                  <td class="py-2 text-right">Rp 7.000</td>
-                  <!-- Items will be dynamically added here -->
-                </tr>
-              </tbody>
+              <tbody id="checkout-items" class=""></tbody>
             </table>
           </div>
 
@@ -64,17 +57,25 @@
           <div class="mt-6 flex flex-col">
             <div class="flex flex-row justify-between items-center font-mono">
               <span class="font-medium text-sm">SUBTOTAL</span>
-              <span class="font-medium text-sm">Rp 14.000</span>
+              <span class="font-medium text-sm" id="subtotal-receipt"
+                >Rp 14.000</span
+              >
             </div>
             <div class="flex flex-row justify-between items-center font-mono">
               <span class="font-medium text-sm">PAJAK (11%)</span>
-              <span class="font-medium text-sm">Rp 1.540</span>
+              <span class="font-medium text-sm" id="tax-receipt">Rp 1.540</span>
+            </div>
+            <div class="flex flex-row justify-between items-center font-mono">
+              <span class="font-medium text-sm">DISKON </span>
+              <span class="font-medium text-sm" id="discount-receipt"
+                >Rp 0</span
+              >
             </div>
             <div
               class="flex flex-row justify-between items-center font-mono pt-2"
             >
               <span class="font-bold">TOTAL</span>
-              <span class="font-bold">Rp 15.540</span>
+              <span class="font-bold" id="total-receipt">Rp 15.540</span>
             </div>
           </div>
 
@@ -559,14 +560,14 @@
               >
                 <button
                   type="button"
-                  class="w-full py-3 border border-error rounded-lg font-bold text-sm text-error"
+                  class="w-full py-3 border border-error rounded-lg font-bold text-sm text-error hover:bg-tertiary transition-colors cursor-pointer"
                   id="reset-btn"
                 >
                   RESET
                 </button>
                 <button
                   type="button"
-                  class="w-full py-3 border bg-success rounded-lg font-bold text-sm text-white"
+                  class="w-full py-3 border bg-success rounded-lg font-bold text-sm text-white cursor-pointer"
                   id="checkout-btn"
                 >
                   CHECKOUT

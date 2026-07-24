@@ -10,6 +10,102 @@
   </head>
   <body class="font-inter min-h-screen">
     <section class="flex min-h-screen">
+      <div
+        id="checkout-modal"
+        class="fixed inset-0 z-60 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm hidden"
+      >
+        <!-- KOTAK MODAL (CARD) -->
+        <div
+          class="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl transition-all"
+        >
+          <!-- Header Modal -->
+          <div
+            class="flex flex-col items-center justify-between gap-2 border-b border-dashed border-gray-300 pb-4"
+          >
+            <h3 class="text-lg font-inter font-medium text-gray-900">
+              QUICKPOS MINIMARKET
+            </h3>
+            <p class="text-sm text-gray-500 font-mono">
+              Jl. Raya No. 123, Kota Bandung
+            </p>
+            <p class="text-sm text-gray-400 font-mono">
+              ID: INV-4832 | 24/05/2024 14:30
+            </p>
+          </div>
+
+          <!-- Body Modal -->
+          <div class="font-mono text-sm">
+            <table class="w-full">
+              <thead>
+                <tr class="border-b border-dashed border-gray-300">
+                  <th class="text-left text-sm font-medium text-gray-700 py-2">
+                    ITEM
+                  </th>
+                  <th class="text-right text-sm font-medium text-gray-700 py-2">
+                    QTY
+                  </th>
+                  <th class="text-right text-sm font-medium text-gray-700 py-2">
+                    TOTAL
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="checkout-items" class="">
+                <tr class="border-b border-dashed border-gray-300">
+                  <td class="py-2">Indomie Goreng</td>
+                  <td class="py-2 text-right">2</td>
+                  <td class="py-2 text-right">Rp 7.000</td>
+                  <!-- Items will be dynamically added here -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- PRICES INFORMATION -->
+          <div class="mt-6 flex flex-col">
+            <div class="flex flex-row justify-between items-center font-mono">
+              <span class="font-medium text-sm">SUBTOTAL</span>
+              <span class="font-medium text-sm">Rp 14.000</span>
+            </div>
+            <div class="flex flex-row justify-between items-center font-mono">
+              <span class="font-medium text-sm">PAJAK (11%)</span>
+              <span class="font-medium text-sm">Rp 1.540</span>
+            </div>
+            <div
+              class="flex flex-row justify-between items-center font-mono pt-2"
+            >
+              <span class="font-bold">TOTAL</span>
+              <span class="font-bold">Rp 15.540</span>
+            </div>
+          </div>
+
+          <!-- THANKS LETTER -->
+          <div class="mt-8 text-center">
+            <p class="text-[12px] text-gray-400 font-medium font-mono">
+              TERIMA KASIH TELAH BERBELANJA
+            </p>
+            <p class="text-[12px] text-gray-400 font-mono">
+              Barang yang sudah dibeli tidak dapat ditukar
+            </p>
+          </div>
+          <!-- Footer / Action Button -->
+          <div class="mt-8 flex justify-center gap-3 pt-4">
+            <button
+              type="button"
+              class="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-200 transition"
+              id="cancel-modal-btn"
+            >
+              TUTUP
+            </button>
+            <button
+              type="button"
+              class="flex-1 px-4 py-2 bg-emerald-600 rounded-lg text-sm font-bold text-white hover:bg-primary transition"
+            >
+              CETAK
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- Sidebar -->
       <aside
         class="sticky top-0 h-screen w-64 flex flex-col bg-navigation-aside py-6 border-r border-[#bbcabf]"

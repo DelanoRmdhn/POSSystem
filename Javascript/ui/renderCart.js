@@ -87,7 +87,7 @@ export const renderReceipt = function () {
         <tr class="border-b border-dashed border-gray-300">
           <td class="py-2">${state.cart[i].name}</td>
           <td class="py-2 text-center">${state.cart[i].quantity}x</td>
-          <td class="py-2 text-right">Rp. ${state.cart[i].price}</td>
+          <td class="py-2 text-right">Rp. ${state.cart[i].price * state.cart[i].quantity}</td>
         </tr>
       `,
     );

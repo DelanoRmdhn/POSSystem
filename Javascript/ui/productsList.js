@@ -13,5 +13,3 @@ export const renderProducts = function () {
     productPrices[i].textContent = `Rp ${products[i].price}`;
   }
 };
-
-renderProducts();

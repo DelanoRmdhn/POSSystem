@@ -1,20 +1,25 @@
-'use strict';
-import {state} from "../state/store.js";
-import { addItem,removeItem,updateCartCounter,calculateSubtotal,calculateTax,calculateDiscount,calculateTotal} from "../services/cart.js";
+"use strict";
+import { state } from "../state/store.js";
+import {
+  addItem,
+  removeItem,
+  updateCartCounter,
+  runServices,
+} from "../services/cart.js";
 
 const parentUl = document.querySelector(".ul-parent");
 
 export const renderCart = function () {
   parentUl.innerHTML = "";
 
-      if (state.cart.length === 0) {
-      document.querySelector(".cart-items-empty").classList.remove("hidden");
-      document.querySelector(".cart-items-active").classList.add("hidden");
-      return;
-    }
-    document.querySelector(".cart-items-empty").classList.add("hidden");
-    document.querySelector(".cart-items-active").classList.remove("hidden");
-    document.getElementById("cart-count").textContent = state.cart.length;
+  if (state.cart.length === 0) {
+    document.querySelector(".cart-items-empty").classList.remove("hidden");
+    document.querySelector(".cart-items-active").classList.add("hidden");
+    return;
+  }
+  document.querySelector(".cart-items-empty").classList.add("hidden");
+  document.querySelector(".cart-items-active").classList.remove("hidden");
+  document.getElementById("cart-count").textContent = state.cart.length;
 
   for (let i = 0; i < state.cart.length; i++) {
     parentUl.insertAdjacentHTML(
@@ -35,7 +40,7 @@ export const renderCart = function () {
         >
         -
         </button>
-        <p class="text-sm font-bold w-6 text-center" id='quantity'>${state. cart[i].quantity}</p>
+        <p class="text-sm font-bold w-6 text-center" id='quantity'>${state.cart[i].quantity}</p>
         <button
         class="w-7 h-7 flex items-center justify-center rounded bg-white hover:text-primary duration-200 btn-increment"
         >
@@ -47,28 +52,21 @@ export const renderCart = function () {
     );
 
     //Tambahin Button untuk tambah item di cart
-    const incrementButton = parentUl.lastElementChild.querySelector(".btn-increment");
-        incrementButton.addEventListener("click", function () {
-            addItem(i);
-            renderCart();
-            updateCartCounter();
-            calculateSubtotal();
-            calculateTax();
-            calculateDiscount();
-            calculateTotal();
-            
-          });
-          
-          //Tambahin Button untuk kurangin item di cart
-          const decrementButton = parentUl.lastElementChild.querySelector(".btn-decrement");
-          decrementButton.addEventListener("click", function () {
-            removeItem(i);
-            renderCart();
-            updateCartCounter();
-            calculateSubtotal();
-            calculateTax(); 
-            calculateDiscount();
-            calculateTotal();
-        });
+    const incrementButton =
+      parentUl.lastElementChild.querySelector(".btn-increment");
+    incrementButton.addEventListener("click", function () {
+      addItem(i);
+      renderCart();
+      updateCartCounter();
+    });
+
+    //Tambahin Button untuk kurangin item di cart
+    const decrementButton =
+      parentUl.lastElementChild.querySelector(".btn-decrement");
+    decrementButton.addEventListener("click", function () {
+      removeItem(i);
+      renderCart();
+      updateCartCounter();
+    });
   }
 };

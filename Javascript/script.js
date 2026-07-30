@@ -7,10 +7,7 @@ import {
   addToCart,
   updateCartCounter,
   addItem,
-  calculateSubtotal,
-  calculateTax,
-  calculateDiscount,
-  calculateTotal,
+  runServices,
 } from "./services/cart.js";
 
 import { renderProducts } from "../Javascript/ui/productsList.js";
@@ -30,22 +27,11 @@ for (let i = 0; i < buttonsAdd.length; i++) {
     console.log("Button Add Clicked");
     addToCart(i);
 
-    // Masukin Elemen Li Baru ke cart apabila belum ada di cart
+    //Tampilkan product ke cart
     renderCart();
 
-    //nilai cartCounter sesuai dengan jumlah item di cart
-    updateCartCounter();
-
-    //hitung subtotal sesuai dengan jumlah item di cart
-    calculateSubtotal();
-
-    //hitung discount sesuai dengan jumlah item di cart
-    calculateDiscount();
-    //hitung tax
-    calculateTax();
-
-    //hitung total sesuai dengan jumlah item di cart
-    calculateTotal();
+    // Jalanin Fungsi Perhitungan
+    runServices();
   });
 }
 

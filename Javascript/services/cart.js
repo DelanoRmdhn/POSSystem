@@ -5,9 +5,11 @@ import { products } from "../data/products.js";
 const cartCount = document.getElementById("cart-count");
 
 export const addToCart = function (index) {
+  const { id, name: name, price } = products[index];
+
   let sudahAda = false;
   for (let i = 0; i < state.cart.length; i++) {
-    if (state.cart[i].id === products[index].id) {
+    if (state.cart[i].id === id) {
       state.cart[i].quantity += 1;
       sudahAda = true;
       break;
@@ -16,11 +18,12 @@ export const addToCart = function (index) {
 
   if (!sudahAda) {
     state.cart.push({
-      id: products[index].id,
-      name: products[index].name,
-      price: products[index].price,
+      id,
+      name,
+      price,
       quantity: 1,
     });
+    console.log(state.cart);
   }
 };
 

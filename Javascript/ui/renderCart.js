@@ -101,5 +101,13 @@ export const renderReceipt = function () {
   checkoutModalEl.classList.remove("hidden");
 };
 
+//CloseModal
 const closeModalBtn = document.getElementById("cancel-modal-btn");
 closeModalBtn.addEventListener("click", closeReceipt);
+
+const sectionEl = document.querySelector(".body");
+sectionEl.addEventListener("keydown", function (e) {
+  if (!checkoutModalEl.classList.contains("hidden") && e.key === "Escape") {
+    closeReceipt();
+  }
+});
